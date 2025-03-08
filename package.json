@@ -1,0 +1,19 @@
+{
+  "name": "cn-ecomerce",
+  "version": "1.0.0",
+  "description": "The E-commerce Project aims to create a fully functional backend for an e-commerce platform. This project focuses on building APIs to handle core e-commerce functionalities, such as product listing, user authentication, cart management, favorites management, and order placement. The backend is built with Node.js, Express.js, and MongoDB, ensuring a scalable and secure system with proper routing, authentication, and database management.\r ## Features",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.11.0"
+  }
+}
