@@ -4,6 +4,7 @@ import CORS from "cors";
 import dotenv from "dotenv";
 import {connectUsingMongoose} from "./config/db.js";
 import userRouter from "./routes/userRoutes.js";
+import productlistRouter from "./routes/productlistRoutes.js";
 
 // load all the env varaibles in application
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(express.json()); // or body-parser
 app.use(express.urlencoded({ extended: true }));
 app.use(CORS());
 app.use('/users', userRouter);
+app.use('/productlist', productlistRouter);
 
 app.get('/', (req, res) => {
     return res
