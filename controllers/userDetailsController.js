@@ -28,11 +28,14 @@ export const getUserDetails = async (req, res) => {
 // Route to add new user details
 export const postUserDetails = async (req, res) => {
   try {
-    const { profileData, profilePic, address, personalDetails } = req.body;
+    console.log("user", req.user);
+     const id = req.user?._id?.toString() ?? ''; 
+      console.log("id>>", id);
+    const {  profilePic, address, personalDetails } = req.body;
     console.log("postuserdetails", req.body);
 
     // Check if the referenced User exists
-    const existingUser = await User.findById(profileData);
+    const existingUser = await User.findById(id);
     if (!existingUser) {
       return res
         .status(404)
@@ -41,7 +44,7 @@ export const postUserDetails = async (req, res) => {
 
     // Create new UserDetails document
     const newUserDetails = new UserDetails({
-      profileData, // The ID referencing the User model
+      profileData : id, // The ID referencing the User model
       profilePic,
       address,
       personalDetails,
