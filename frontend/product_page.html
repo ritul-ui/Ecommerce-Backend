@@ -179,13 +179,14 @@
                 "Dummy Discounted Product",
                 40.00,
                 "This is a dummy discounted product.",
-                "https://via.placeholder.com/400x300?text=Discounted+Product",
+                "https://placehold.co/400x300?text=Discounted+Product",
                 30 // 30% discount
             );
 
             // Fetch products from products.json and display them
-            fetch('http://localhost:5000/productlists')
+            fetch('http://localhost:3100/productlists/get')
                 .then(response => {
+                    console.log("res", response);
                     if (!response.ok) {
                         throw new Error('Network response was not ok.');
                     }

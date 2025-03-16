@@ -1,6 +1,6 @@
 // controllers/productListController.js
 import fs from 'fs';
-import Product from '../models/productModel.js';
+import ProductList from '../models/productlistModel.js';
 
 // Controller to import product data from JSON file into MongoDB
 const importProductList = async (req, res) => {
@@ -12,7 +12,7 @@ const importProductList = async (req, res) => {
     const productslist = JSON.parse(data);
 
     // Insert the products into MongoDB using Mongoose's insertMany
-    await Product.insertMany(productslist);
+    await ProductList.insertMany(productslist);
 
     // Send success response
     res.status(200).send('Data imported successfully');
@@ -41,7 +41,7 @@ const importProductList = async (req, res) => {
 // Get all product list
 export const getAllProducts = async (req, res) => {
   try {
-    const products = await Product.find(); // Fetching products from the database
+    const products = await ProductList.find(); // Fetching products from the database
     res.status(200).json(products); // Respond with the list of products
   } catch (err) {
     res.status(500).json({ message: "Error fetching products", error: err.message });
@@ -51,7 +51,7 @@ export const getAllProducts = async (req, res) => {
 // Add a new product
 export const addProduct = async (req, res) => {
   const { name, price, description, image } = req.body;
-  console.log("req user email", req.userID);
+  // console.log("req user email", req.userID);
 
   // Check if the required fields are provided
   if (!name || !price || !description || !image) {
@@ -59,7 +59,7 @@ export const addProduct = async (req, res) => {
   }
 
   // Create a new product instance
-  const newProduct = new Product({ name, price, description, image });
+  const newProduct = new ProductList({ name, price, description, image });
 
   try {
     await newProduct.save(); // Save the product to the database

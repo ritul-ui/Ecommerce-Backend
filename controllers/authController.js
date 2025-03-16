@@ -72,7 +72,7 @@ export const loginUsers = async (req, res) => {
     const doMatch = await Hash.compare(password, user.password);
     console.log("domatch", doMatch);
     if (doMatch) {
-      const token = Jwt.sign({ userID: user._id , email : user.email}, process.env.JWTTOKENS, { expiresIn: '1h' });
+      const token = Jwt.sign({ _id: user._id}, process.env.JWTTOKENS, { expiresIn: '1h' });
       console.log("token", token);
       const { _id, name, email } = user;
       res.json({

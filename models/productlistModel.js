@@ -2,7 +2,7 @@
 import mongoose from 'mongoose';
 
 // Define the schema for a product
-const productSchema = new mongoose.Schema({
+const productlistSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -20,6 +20,6 @@ const productSchema = new mongoose.Schema({
 });
 
 // Create the Product model using the schema
-const Product = mongoose.model('Productlist', productSchema);
+const ProductList = mongoose.model('Productlist', productlistSchema);
 
-export default Product;
+export default ProductList;
