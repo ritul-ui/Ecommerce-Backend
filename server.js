@@ -10,6 +10,7 @@ import productlistRouter from "./routes/productlistRoutes.js";
 import authrouter from "./routes/authRoutes.js";
 import cartrouter from './routes/cartRoutes.js';
 import userdetailrouter from './routes/userDetailsRoutes.js';
+import orderrouter from './routes/orderRoutes.js';
 // import jwtAuth from './middlewares/jwt.middleware.js';
 
 // load all the env varaibles in application
@@ -32,6 +33,7 @@ app.use("/auth", authrouter);
 app.use('/productlists', productlistRouter);
 app.use("/cart", cartrouter);
 app.use("/userdetails", userdetailrouter);
+app.use("/orders", orderrouter);
 
 app.get('/', (req, res) => {
     return res

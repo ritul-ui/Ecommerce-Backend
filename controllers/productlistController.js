@@ -59,11 +59,11 @@ export const addProduct = async (req, res) => {
   }
 
   // Create a new product instance
-  const newProduct = new ProductList({ name, price, description, image });
+  const productlist  = new ProductList({ name, price, description, image }); //changes
 
   try {
-    await newProduct.save(); // Save the product to the database
-    res.status(201).json({ message: "Product created successfully", newProduct });
+    await productlist.save(); // Save the product to the database
+    res.status(201).json({ message: "Product created successfully", productlist  });
   } catch (err) {
     res.status(400).json({ message: "Error creating product", error: err.message });
   }
