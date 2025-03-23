@@ -12,6 +12,8 @@ import cartrouter from './routes/cartRoutes.js';
 import userdetailrouter from './routes/userDetailsRoutes.js';
 import orderrouter from './routes/orderRoutes.js';
 // import jwtAuth from './middlewares/jwt.middleware.js';
+// import redis from "./config/redis";
+import paymentrouter from './routes/paymentsRoutes.js';
 
 // load all the env varaibles in application
 dotenv.config();
@@ -34,6 +36,8 @@ app.use('/productlists', productlistRouter);
 app.use("/cart", cartrouter);
 app.use("/userdetails", userdetailrouter);
 app.use("/orders", orderrouter);
+
+app.use("/payments", paymentrouter);
 
 app.get('/', (req, res) => {
     return res

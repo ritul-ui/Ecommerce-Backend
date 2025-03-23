@@ -16,6 +16,7 @@ export const createOrder = async (req, res) => {
             }
             item.price = product.price; // Update item price from the database
         }
+        
 
         console.log("item", items);
         // Calculate the total price

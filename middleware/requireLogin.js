@@ -8,11 +8,11 @@ const requireLogin = (req, res, next) => {
     return res.status(422).json({ error: "Not authorized" });
   }
   
-  const token = authorization.replace("bearer ", "");
+  const token = authorization.replace("Bearer ", "");
   
   JWT.verify(token, process.env.JWTTOKENS, (err, payload) => {
     if (err) {
-      return res.status(402).json({ error: "Verification failed" });
+      return res.status(402).json({ error: `error verifying token: ${err}` });
     }
 
     const { _id } = payload;

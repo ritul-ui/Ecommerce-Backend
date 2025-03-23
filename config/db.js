@@ -2,7 +2,7 @@
 import mongoose from "mongoose";
 
 
-const url = ""; // your local url connection add here
+const url = "";
 console.log("url", url);
 
 
@@ -20,4 +20,5 @@ export const connectUsingMongoose = () => {
     console.log(err);
   }
 };
+
 
